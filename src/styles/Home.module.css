@@ -1,8 +1,4 @@
-
-
-
 .first {
-  /* Your CSS styles for the first content */
   height: 100vh;
   background-color: blueviolet;
   display: flex;
@@ -16,20 +12,29 @@
   width: 700px;
 }
 
-.button{
+.button {
   padding: 15px;
   border: 3px solid black;
-  height: 50px;
   cursor: pointer;
   margin-top: 20px;
+  font-size: 22px;
+  color: white;
+  background: linear-gradient(to right, black 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  transition: background-position 1s;
+}
+
+.button:hover {
+  color: white;
+  background-position: 0;
+  transition: background-position .5s;
 }
 
 .second {
-  width: 100vw;
-  height: 100vh;
-  background-color: blueviolet;
+  width: 90vw;
+  height: 90vh;
 }
-
 
 .animateOut {
   animation-name: fadeOut;
@@ -67,10 +72,6 @@
   }
 }
 
-
-
-
-
 .container {
   position: relative;
 }
@@ -103,11 +104,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-
-.menu{
+.menu {
   text-align: center;
 }
 
@@ -115,6 +114,7 @@
   margin-top: 30px;
   width: 300px;
   padding: 10px;
+  list-style-type: none;
 }
 
 .menu li:hover {
@@ -126,4 +126,8 @@
   color: white;
   font-size: 60px;
   text-decoration: none;
+}
+
+.black {
+  color: black;
 }

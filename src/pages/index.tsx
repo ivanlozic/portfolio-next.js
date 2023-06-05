@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 const iconSize = {
   height: '40px',
-  width: '40px'
+  width: '40px',
 }
 
 
@@ -81,7 +81,7 @@ export default function Home() {
               {isMenuOpen ? (
                 <FiX style={iconSize} />
               ) : (
-                <FiMenu style={iconSize} />
+                <FiMenu style={isSecondContentVisible ? { ...iconSize, color: 'black' } : iconSize} />
               )}
             </button>
             {isMenuOpen && (
