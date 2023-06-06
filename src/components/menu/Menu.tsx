@@ -36,7 +36,7 @@ export default function Menu({
                 <a href='#'>About</a>
               </li>
               <li>
-                <a href='#'>Skills</a>
+                <a href='skillsPage'>Skills</a>
               </li>
               <li>
                 <Link href='/contactPage'>Contact</Link>

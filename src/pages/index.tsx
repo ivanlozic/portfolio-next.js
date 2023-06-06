@@ -17,9 +17,6 @@ export default function Home() {
   const [isSecondContentVisible, setSecondContentVisible] = useState(false)
   const [isButtonClicked, setButtonClicked] = useState(false)
   const [typedText, setTypedText] = useState('')
-
-
-
   const { isMenuOpen, toggleMenu } = useMenu();
 
   const showSecondContent = () => {

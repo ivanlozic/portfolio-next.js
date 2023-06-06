@@ -7,11 +7,8 @@ const ContactPage = () => {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
   const [currentStep, setCurrentStep] = useState(0)
- 
 
-  const { isMenuOpen, toggleMenu } = useMenu();
-
-
+  const { isMenuOpen, toggleMenu } = useMenu()
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
