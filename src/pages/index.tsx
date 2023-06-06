@@ -1,29 +1,26 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Navbar from '@/components/Navbar'
 import { useEffect, useState } from 'react'
-import { FiMenu, FiX } from 'react-icons/fi'
+import Menu from '@/components/menu/Menu'
+import useMenu from '@/hooks/useMenu';
 
 const inter = Inter({ subsets: ['latin'] })
 
 const iconSize = {
   height: '40px',
-  width: '40px',
+  width: '40px'
 }
-
-
-
-
 
 export default function Home() {
   const [isFirstContentVisible, setFirstContentVisible] = useState(true)
   const [isSecondContentVisible, setSecondContentVisible] = useState(false)
   const [isButtonClicked, setButtonClicked] = useState(false)
   const [typedText, setTypedText] = useState('')
-  const [isMenuOpen, setMenuOpen] = useState(false)
 
+
+
+  const { isMenuOpen, toggleMenu } = useMenu();
 
   const showSecondContent = () => {
     setButtonClicked(true)
@@ -33,37 +30,26 @@ export default function Home() {
     }, 500)
   }
 
-  const toggleMenu = () => {
-    setMenuOpen((prevState) => !prevState)
-  }
-
-  
-  const handleHomeScreen = () => {
-    setMenuOpen((prevState) => !prevState)
-    setFirstContentVisible(true)
-    setSecondContentVisible(false)
-  }
-
-
   useEffect(() => {
     if (isFirstContentVisible) {
       let intervalId = setInterval(() => {
-        const originalText = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, illum. Facere voluptates sequi laboriosam modi quisquam id sapiente ipsa aliquam!'
+        const originalText =
+          'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, illum. Facere voluptates sequi laboriosam modi quisquam id sapiente ipsa aliquam!'
         const currentLength = typedText.length
         const remainingText = originalText.slice(currentLength)
-  
+
         if (remainingText) {
           setTypedText((prevText) => prevText + remainingText.charAt(0))
         } else {
           clearInterval(intervalId)
         }
       }, 50)
-  
+
       return () => {
         clearInterval(intervalId)
       }
     }
-  }, [isFirstContentVisible,typedText.length])
+  }, [isFirstContentVisible, typedText.length])
 
   return (
     <>
@@ -76,33 +62,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.container}>
-          <div className={styles.content}>
-            <button className={styles.menuButton} onClick={toggleMenu}>
-              {isMenuOpen ? (
-                <FiX style={iconSize} />
-              ) : (
-                <FiMenu style={isSecondContentVisible ? { ...iconSize, color: 'black' } : iconSize} />
-              )}
-            </button>
-            {isMenuOpen && (
-              <div className={styles.overlay}>
-                <ul className={styles.menu}>
-                  <li>
-                    <a onClick={handleHomeScreen} href='/'>Home</a>
-                  </li>
-                  <li>
-                    <a href='#'>About</a>
-                  </li>
-                  <li>
-                    <a href='#'>Services</a>
-                  </li>
-                  <li>
-                    <a href='#'>Contact</a>
-                  </li>
-                </ul>
-              </div>
-            )}
-          </div>
+        <Menu
+          isMenuOpen={isMenuOpen}
+          toggleMenu={toggleMenu}
+        />
 
           {isFirstContentVisible && (
             <div
