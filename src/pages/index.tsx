@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import Menu from '@/components/menu/Menu'
-import useMenu from '@/hooks/useMenu';
+import useMenu from '@/hooks/useMenu'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,7 +17,7 @@ export default function Home() {
   const [isSecondContentVisible, setSecondContentVisible] = useState(false)
   const [isButtonClicked, setButtonClicked] = useState(false)
   const [typedText, setTypedText] = useState('')
-  const { isMenuOpen, toggleMenu } = useMenu();
+  const { isMenuOpen, toggleMenu } = useMenu()
 
   const showSecondContent = () => {
     setButtonClicked(true)
@@ -30,8 +30,7 @@ export default function Home() {
   useEffect(() => {
     if (isFirstContentVisible) {
       let intervalId = setInterval(() => {
-        const originalText =
-          'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, illum. Facere voluptates sequi laboriosam modi quisquam id sapiente ipsa aliquam!'
+        const originalText = `Welcome to my website! I'm Ivan Lozić, a skilled Full Stack Developer with a passion for crafting exceptional digital experiences.`
         const currentLength = typedText.length
         const remainingText = originalText.slice(currentLength)
 
@@ -59,10 +58,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.container}>
-        <Menu
-          isMenuOpen={isMenuOpen}
-          toggleMenu={toggleMenu}
-        />
+          <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
           {isFirstContentVisible && (
             <div
@@ -73,7 +69,7 @@ export default function Home() {
               <div className={styles.text}>
                 <h1>{typedText}</h1>
                 <button className={styles.button} onClick={showSecondContent}>
-                  Click me to show second content
+                  Click here to continue
                 </button>
               </div>
             </div>
