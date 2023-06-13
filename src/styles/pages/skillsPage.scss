@@ -1,15 +1,28 @@
+.skillsPage{
+  background-color: rgb(68, 68, 68);
+  height: fit-content;
+  padding: 100px 300px;
+}
+
+
 .paragraphs {
-  padding: 300px;
+  border-radius: 20px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+  height: 100vh;
 }
 .paragraph {
   display: flex;
   justify-content: center;
   align-items: center;
   animation: fade-in 1s ease-in;
-  margin: 50px 0;
-  width: 300px;
+  margin: 40px;
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 70px;
 }
 
 @keyframes fade-in {

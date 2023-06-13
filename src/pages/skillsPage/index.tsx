@@ -45,7 +45,7 @@ const SkillsPage = () => {
   ));
 
   return (
-    <div className="main">
+    <div className="skillsPage">
       <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
       <div className="paragraphs">{renderedParagraphs}</div>
