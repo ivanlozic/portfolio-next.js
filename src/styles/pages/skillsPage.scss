@@ -1,0 +1,28 @@
+.paragraphs {
+  padding: 300px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.paragraph {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fade-in 1s ease-in;
+  margin: 50px 0;
+  width: 300px;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-500px) rotate(0deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(100px ) rotate(180deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(360deg);
+  }
+}
