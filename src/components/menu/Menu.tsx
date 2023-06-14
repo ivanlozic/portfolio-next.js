@@ -33,7 +33,7 @@ export default function Menu({
                 <a href='/'>Home</a>
               </li>
               <li>
-                <a href='#'>About</a>
+                <a href='aboutPage'>About</a>
               </li>
               <li>
                 <a href='skillsPage'>Skills</a>

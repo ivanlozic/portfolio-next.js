@@ -149,3 +149,39 @@
 .black {
   color: black;
 }
+
+
+.second{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgBox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  width: 700px;
+  text-align: center;
+  animation: imgFadeIn .7s ease-in;
+}
+
+@keyframes imgFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50vh);
+  }
+
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.imgBox h3{
+  margin: 10px 0;
+}
+

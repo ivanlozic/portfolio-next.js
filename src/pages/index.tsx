@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import Menu from '@/components/menu/Menu'
 import useMenu from '@/hooks/useMenu'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -78,7 +79,59 @@ export default function Home() {
       </main>
       {isSecondContentVisible && (
         <div className={`${styles.second} ${styles.animateIn}`}>
-          Ivan Portfolio radovi
+          <div className={styles.imgBox}>
+            <Image
+              src='/images/rocket.png'
+              alt='Dynamic icon'
+              width={150}
+              height={150}
+            />
+            <h3>Dynamic</h3>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui
+              repellendus sequi ad cumque esse sed voluptate ratione consectetur
+              corporis consequuntur.
+            </p>
+          </div>
+          <div className={styles.imgBox}>
+            <Image
+              src='/images/responsive.jpg'
+              alt='Responsive icon'
+              width={150}
+              height={150}
+            />
+            <h3>Responsive</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              praesentium harum nihil quaerat at. Iure a rem quae fugiat dolor.
+            </p>
+          </div>
+          <div className={styles.imgBox}>
+            <Image
+              src='/images/speed.png'
+              alt='Responsive icon'
+              width={150}
+              height={150}
+            />
+            <h3>Fast</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              praesentium harum nihil quaerat at. Iure a rem quae fugiat dolor.
+            </p>
+          </div>
+          <div className={styles.imgBox}>
+            <Image
+              src='/images/custom.png'
+              alt='Responsive icon'
+              width={150}
+              height={150}
+            />
+            <h3>Customized according to your specific requirements.</h3>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
+              praesentium harum nihil quaerat at. Iure a rem quae fugiat dolor.
+            </p>
+          </div>
         </div>
       )}
     </>
