@@ -1,9 +1,9 @@
 export const ovalSpinner = {
-    height: 50,
-    width: 50,
+    height: 70,
+    width: 70,
     color: 'black',
     ariaLabel: 'oval-loading',
-    secondaryColor: 'grey',
-    strokeWidth: 6,
+    secondaryColor: 'white',
+    strokeWidth: 4,
     strokeWidthSecondary: 6
   }
