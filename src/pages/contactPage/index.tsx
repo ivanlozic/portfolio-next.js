@@ -1,6 +1,9 @@
 import Menu from '@/components/menu/Menu'
 import useMenu from '@/hooks/useMenu'
 import { useState } from 'react'
+import React from 'react'
+import emailjs from '@emailjs/browser';
+
 
 const ContactPage = () => {
   const [name, setName] = useState('')
@@ -8,6 +11,7 @@ const ContactPage = () => {
   const [message, setMessage] = useState('')
   const [currentStep, setCurrentStep] = useState(0)
   const { isMenuOpen, toggleMenu } = useMenu()
+
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -26,15 +30,21 @@ const ContactPage = () => {
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+
     event.preventDefault()
+ 
+    emailjs.sendForm('service_k34ijro', 'template_rgwj79u', event.currentTarget, '6oyvboMgrwfa6ef96')
+      .then((result) => {
+          // show the user a success message
+      }, (error) => {
+          // show the user an error
+      });
 
     const formData = {
       name,
       email,
       message
     }
-
-    console.log(formData)
 
     setName('')
     setEmail('')
@@ -85,6 +95,7 @@ const ContactPage = () => {
                 value={name}
                 placeholder='Fill with your name'
                 onChange={handleNameChange}
+                name="user_name"
               />
               <button
                 type='submit'
@@ -109,6 +120,7 @@ const ContactPage = () => {
                 value={email}
                 placeholder='Fill with your email'
                 onChange={handleEmailChange}
+                name="user_email"
               />
 
               <button
@@ -125,7 +137,7 @@ const ContactPage = () => {
           </form>
         )}
         {currentStep === 2 && (
-          <form onSubmit={handleSubmit}>
+          <form  onSubmit={handleSubmit}>
             <label>Message:</label>
 
             <div>
@@ -133,6 +145,7 @@ const ContactPage = () => {
                 type='text'
                 value={message}
                 placeholder='Write your message'
+                name="message"
                 onChange={handleMessageChange}
               />
 

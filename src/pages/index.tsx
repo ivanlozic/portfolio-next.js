@@ -81,7 +81,7 @@ export default function Home() {
         <div className={`${styles.second} ${styles.animateIn}`}>
           <div className={styles.imgBox}>
             <Image
-              src='/images/rocket.png'
+              src='/images/rocket-1.png'
               alt='Dynamic icon'
               width={150}
               height={150}
@@ -95,7 +95,7 @@ export default function Home() {
           </div>
           <div className={styles.imgBox}>
             <Image
-              src='/images/responsive.jpg'
+              src='/images/responsive-design.png'
               alt='Responsive icon'
               width={150}
               height={150}
@@ -108,8 +108,8 @@ export default function Home() {
           </div>
           <div className={styles.imgBox}>
             <Image
-              src='/images/speed.png'
-              alt='Responsive icon'
+              src='/images/fast.png'
+              alt='Speed icon'
               width={150}
               height={150}
             />
@@ -121,8 +121,8 @@ export default function Home() {
           </div>
           <div className={styles.imgBox}>
             <Image
-              src='/images/custom.png'
-              alt='Responsive icon'
+              src='/images/custom-work.png'
+              alt='Custom icon'
               width={150}
               height={150}
             />
