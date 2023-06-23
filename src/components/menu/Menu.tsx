@@ -7,10 +7,7 @@ type MenuProps = {
   toggleMenu: () => void
 }
 
-export default function Menu({
-  isMenuOpen,
-  toggleMenu,
-}: MenuProps) {
+export default function Menu({ isMenuOpen, toggleMenu }: MenuProps) {
   const iconSize = {
     height: '40px',
     width: '40px'
@@ -30,13 +27,13 @@ export default function Menu({
           <div className={styles.overlay}>
             <ul className={styles.menu}>
               <li>
-                <a href='/'>Home</a>
+                <Link href='/'>Home</Link>
               </li>
               <li>
-                <a href='aboutPage'>About</a>
+                <Link href='/aboutPage'>About</Link>
               </li>
               <li>
-                <a href='skillsPage'>Skills</a>
+                <Link href='/skillsPage'>Skills</Link>
               </li>
               <li>
                 <Link href='/contactPage'>Contact</Link>
