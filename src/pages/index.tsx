@@ -4,7 +4,6 @@ import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import Menu from '@/components/menu/Menu'
 import useMenu from '@/hooks/useMenu'
-import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,22 +13,15 @@ const iconSize = {
 }
 
 export default function Home() {
-  const [isFirstContentVisible, setFirstContentVisible] = useState(true)
-  const [isSecondContentVisible, setSecondContentVisible] = useState(false)
-  const [isButtonClicked, setButtonClicked] = useState(false)
+  const [isFirstContentVisible] = useState(true)
+  const [isButtonClicked] = useState(false)
   const [typedText, setTypedText] = useState('')
   const { isMenuOpen, toggleMenu } = useMenu()
 
-  const showSecondContent = () => {
-    setButtonClicked(true)
-    setTimeout(() => {
-      setFirstContentVisible(false)
-      setSecondContentVisible(true)
-    }, 500)
-  }
+
 
   useEffect(() => {
-    if (isFirstContentVisible) {
+    
       let intervalId = setInterval(() => {
         const originalText = `Welcome to my website! I'm Ivan Lozić, a skilled Full Stack Developer with a passion for crafting exceptional digital experiences.`
         const currentLength = typedText.length
@@ -40,12 +32,12 @@ export default function Home() {
         } else {
           clearInterval(intervalId)
         }
-      }, 50)
+      }, 45)
 
       return () => {
         clearInterval(intervalId)
       }
-    }
+    
   }, [isFirstContentVisible, typedText.length])
 
   return (
@@ -69,71 +61,12 @@ export default function Home() {
             >
               <div className={styles.text}>
                 <h1>{typedText}</h1>
-                <button className={styles.button} onClick={showSecondContent}>
-                  Click here to continue
-                </button>
               </div>
             </div>
           )}
         </div>
       </main>
-      {isSecondContentVisible && (
-        <div className={`${styles.second} ${styles.animateIn}`}>
-          <div className={styles.imgBox}>
-            <Image
-              src='/images/rocket-1.png'
-              alt='Dynamic icon'
-              width={150}
-              height={150}
-            />
-            <h3>Dynamic</h3>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui
-              repellendus sequi ad cumque esse sed voluptate ratione consectetur
-              corporis consequuntur.
-            </p>
-          </div>
-          <div className={styles.imgBox}>
-            <Image
-              src='/images/responsive-design.png'
-              alt='Responsive icon'
-              width={150}
-              height={150}
-            />
-            <h3>Responsive</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              praesentium harum nihil quaerat at. Iure a rem quae fugiat dolor.
-            </p>
-          </div>
-          <div className={styles.imgBox}>
-            <Image
-              src='/images/fast.png'
-              alt='Speed icon'
-              width={150}
-              height={150}
-            />
-            <h3>Fast</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              praesentium harum nihil quaerat at. Iure a rem quae fugiat dolor.
-            </p>
-          </div>
-          <div className={styles.imgBox}>
-            <Image
-              src='/images/custom-work.png'
-              alt='Custom icon'
-              width={150}
-              height={150}
-            />
-            <h3>Customized according to your specific requirements.</h3>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
-              praesentium harum nihil quaerat at. Iure a rem quae fugiat dolor.
-            </p>
-          </div>
-        </div>
-      )}
+
     </>
   )
 }

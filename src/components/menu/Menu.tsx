@@ -20,7 +20,7 @@ export default function Menu({ isMenuOpen, toggleMenu }: MenuProps) {
           {isMenuOpen ? (
             <FiX style={iconSize} />
           ) : (
-            <FiMenu style={{ ...iconSize, color: 'black' }} />
+            <FiMenu style={{ ...iconSize, color: 'white' }} />
           )}
         </button>
         {isMenuOpen && (

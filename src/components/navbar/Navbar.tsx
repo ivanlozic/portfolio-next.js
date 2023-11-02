@@ -1,11 +1,9 @@
 import Link from 'next/link'
 import React from 'react'
 const Navbar = () => {
-
-
   return (
     <nav>
-        <h3>Ivan Lozic</h3>
+      <h3>Ivan Lozic</h3>
       <ul>
         <li>
           <Link href='/'>Home</Link>
@@ -20,7 +18,6 @@ const Navbar = () => {
           <Link href='/contactPage'>Contact</Link>
         </li>
       </ul>
-
     </nav>
   )
 }

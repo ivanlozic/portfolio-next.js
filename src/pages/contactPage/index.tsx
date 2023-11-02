@@ -2,8 +2,8 @@ import Menu from '@/components/menu/Menu'
 import useMenu from '@/hooks/useMenu'
 import { useState } from 'react'
 import React from 'react'
-import emailjs from '@emailjs/browser';
-
+import emailjs from '@emailjs/browser'
+import styles from './index.module.scss'
 
 const ContactPage = () => {
   const [name, setName] = useState('')
@@ -11,7 +11,6 @@ const ContactPage = () => {
   const [message, setMessage] = useState('')
   const [currentStep, setCurrentStep] = useState(0)
   const { isMenuOpen, toggleMenu } = useMenu()
-
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value)
@@ -30,15 +29,23 @@ const ContactPage = () => {
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-
     event.preventDefault()
- 
-    emailjs.sendForm('service_k34ijro', 'template_rgwj79u', event.currentTarget, '6oyvboMgrwfa6ef96')
-      .then((result) => {
+
+    emailjs
+      .sendForm(
+        'service_k34ijro',
+        'template_rgwj79u',
+        event.currentTarget,
+        '6oyvboMgrwfa6ef96'
+      )
+      .then(
+        (result) => {
           // show the user a success message
-      }, (error) => {
+        },
+        (error) => {
           // show the user an error
-      });
+        }
+      )
 
     const formData = {
       name,
@@ -70,9 +77,9 @@ const ContactPage = () => {
   const isButtonDisabled = isNextButtonDisabled()
 
   return (
-    <div className='contactPage'>
+    <div className={styles.contactPage}>
       <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-      <div className='contactPage__container'>
+      <div className={styles.contactPage__container}> 
         <h1> Get in touch</h1>
         <h4>
           If you wanna get in touch, discussing a potential collaboration, or
@@ -81,7 +88,7 @@ const ContactPage = () => {
           a conversation and explore the possibilities.
         </h4>
 
-        <div className='contactPage__container__'>
+        <div className={styles.contactPage__container__}> 
           <p>{name}</p>
           <p>{email}</p>
         </div>
@@ -95,7 +102,7 @@ const ContactPage = () => {
                 value={name}
                 placeholder='Fill with your name'
                 onChange={handleNameChange}
-                name="user_name"
+                name='user_name'
               />
               <button
                 type='submit'
@@ -120,7 +127,7 @@ const ContactPage = () => {
                 value={email}
                 placeholder='Fill with your email'
                 onChange={handleEmailChange}
-                name="user_email"
+                name='user_email'
               />
 
               <button
@@ -137,7 +144,7 @@ const ContactPage = () => {
           </form>
         )}
         {currentStep === 2 && (
-          <form  onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <label>Message:</label>
 
             <div>
@@ -145,7 +152,7 @@ const ContactPage = () => {
                 type='text'
                 value={message}
                 placeholder='Write your message'
-                name="message"
+                name='message'
                 onChange={handleMessageChange}
               />
 
@@ -163,7 +170,7 @@ const ContactPage = () => {
           </form>
         )}
 
-        <div className='contactPage__container__buttonBox'>
+        <div className={styles.contactPage__container__buttonBox}> 
           <h3>Lets get social</h3>
           <button>
             <a
@@ -183,5 +190,6 @@ const ContactPage = () => {
     </div>
   )
 }
+
 
 export default ContactPage
