@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import { useEffect, useState } from 'react'
 import Menu from '@/components/menu/Menu'
 import useMenu from '@/hooks/useMenu'
+import Image from 'next/image'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,26 +19,22 @@ export default function Home() {
   const [typedText, setTypedText] = useState('')
   const { isMenuOpen, toggleMenu } = useMenu()
 
-
-
   useEffect(() => {
-    
-      let intervalId = setInterval(() => {
-        const originalText = `Welcome to my website! I'm Ivan Lozić, a skilled Full Stack Developer with a passion for crafting exceptional digital experiences.`
-        const currentLength = typedText.length
-        const remainingText = originalText.slice(currentLength)
+    let intervalId = setInterval(() => {
+      const originalText = `Welcome to my website! I'm Ivan Lozić, a skilled Full Stack Developer with a passion for crafting exceptional digital experiences.`
+      const currentLength = typedText.length
+      const remainingText = originalText.slice(currentLength)
 
-        if (remainingText) {
-          setTypedText((prevText) => prevText + remainingText.charAt(0))
-        } else {
-          clearInterval(intervalId)
-        }
-      }, 45)
-
-      return () => {
+      if (remainingText) {
+        setTypedText((prevText) => prevText + remainingText.charAt(0))
+      } else {
         clearInterval(intervalId)
       }
-    
+    }, 45)
+
+    return () => {
+      clearInterval(intervalId)
+    }
   }, [isFirstContentVisible, typedText.length])
 
   return (
@@ -59,14 +56,23 @@ export default function Home() {
                 isButtonClicked ? styles.animateOut : ''
               }`}
             >
-              <div className={styles.text}>
-                <h1>{typedText}</h1>
+              <div className={styles.tvImg}>
+                <Image
+                className={styles.img}
+                  src='/images/tv-scree.jpg'
+                  width={900}
+                  height={400}
+                  alt='Profile photo'
+                />
+
+                <div className={styles.text}>
+                  <h1>{typedText}</h1>
+                </div>
               </div>
             </div>
           )}
         </div>
       </main>
-
     </>
   )
 }

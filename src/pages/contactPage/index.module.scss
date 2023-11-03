@@ -1,13 +1,20 @@
 .contactPage {
-    background-color: rgb(68, 68, 68);
+  background-color: #232021;
     height: 100vh;
     padding: 200px;
     color: white;
     font-size: 20px;
   
     button{
-      width: 150px;
-      height: 50px;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      margin-right: 20px;
+      cursor: pointer;
+      transform: scale(1);
+      transition: transform 0.3s ease-in-out;
+      border: none;
+      box-shadow: 5px 5px 4px rgb(46, 46, 46);
     }
   
     &__container {
@@ -68,7 +75,7 @@
         margin-top: 20px;
         button {
           padding: 10px;
-          background-color: green;
+          background-color:  #29bff3;
           border-radius: 5px;
           margin-top: 10px;
           margin-right: 20px;
@@ -76,7 +83,7 @@
           transform: scale(1);
           transition: transform 0.3s ease-in-out;
           border: none;
-          border-bottom: 6px solid rgb(0, 110, 0);
+          border-bottom: 6px solid #27afdc;
           box-shadow: 5px 5px 4px rgb(46, 46, 46);
   
           &:hover {

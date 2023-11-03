@@ -1,33 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Menu from '@/components/menu/Menu'
 import useMenu from '@/hooks/useMenu'
 import Image from 'next/image'
+import styles from './index.module.scss'
 
 const AboutPage = () => {
   const { isMenuOpen, toggleMenu } = useMenu()
 
   return (
-    <div className='aboutPage'>
+    <div className={styles.aboutPage}>
       <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-
-      <div className='aboutPage__box'></div>
-
+      <div className={styles.aboutPage__box}></div>
       <Image
-        className='aboutPage__profilePhoto'
+        className={styles.aboutPage__profilePhoto}
         src='/images/Profile-photo.png'
         width={400}
         height={500}
         alt='Profile photo'
       />
 
-      <div className='aboutPage__text'>
+      <div className={styles.aboutPage__text}>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-          facilis consectetur eum ut sed quos neque officiis laudantium et
-          dolore nemo suscipit, vero delectus eaque, adipisci accusamus quas
-          maxime? Ducimus enim doloribus totam a, impedit fugit accusantium.
-          Debitis voluptatum repellat soluta, ab delectus consequatur fugiat
-          odio. Dolorem aliquam rerum ratione!
+          As a Software developer, I am dedicated to creating stunning and
+          dynamic user interfaces that provide exceptional user experiences.
+          With a strong work ethic, I always give 100% to every project,
+          ensuring that each one is completed to the best of my abilities.
+          Throughout my career, I have built strong relationships with
+          teammates, collaborating and working together to create successful
+          results. Communication is key in any team environment, and I am proud
+          to have worked with diverse populations and successfully overcome any
+          communication gaps.
         </p>
       </div>
     </div>

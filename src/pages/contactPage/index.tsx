@@ -79,7 +79,7 @@ const ContactPage = () => {
   return (
     <div className={styles.contactPage}>
       <Menu isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
-      <div className={styles.contactPage__container}> 
+      <div className={styles.contactPage__container}>
         <h1> Get in touch</h1>
         <h4>
           If you wanna get in touch, discussing a potential collaboration, or
@@ -88,7 +88,7 @@ const ContactPage = () => {
           a conversation and explore the possibilities.
         </h4>
 
-        <div className={styles.contactPage__container__}> 
+        <div className={styles.contactPage__container__}>
           <p>{name}</p>
           <p>{email}</p>
         </div>
@@ -107,7 +107,7 @@ const ContactPage = () => {
               <button
                 type='submit'
                 style={{
-                  backgroundColor: isButtonDisabled ? '' : 'green',
+                  backgroundColor: isButtonDisabled ? '' : '#29bff3',
                   color: isButtonDisabled ? '' : 'white'
                 }}
                 disabled={isButtonDisabled}
@@ -133,7 +133,7 @@ const ContactPage = () => {
               <button
                 type='submit'
                 style={{
-                  backgroundColor: isButtonDisabled ? '' : 'green',
+                  backgroundColor: isButtonDisabled ? '' : '#29bff3',
                   color: isButtonDisabled ? '' : 'white'
                 }}
                 disabled={isButtonDisabled}
@@ -159,7 +159,7 @@ const ContactPage = () => {
               <button
                 type='submit'
                 style={{
-                  backgroundColor: isButtonDisabled ? '' : 'green',
+                  backgroundColor: isButtonDisabled ? '' : '#29bff3',
                   color: isButtonDisabled ? '' : 'white'
                 }}
                 disabled={isButtonDisabled}
@@ -170,7 +170,7 @@ const ContactPage = () => {
           </form>
         )}
 
-        <div className={styles.contactPage__container__buttonBox}> 
+        <div className={styles.contactPage__container__buttonBox}>
           <h3>Lets get social</h3>
           <button>
             <a
@@ -190,6 +190,5 @@ const ContactPage = () => {
     </div>
   )
 }
-
 
 export default ContactPage
